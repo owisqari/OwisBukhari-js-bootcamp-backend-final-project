@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LMS</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"],
+          },
+        },
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/public/styles/style.css" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/1bacf2776e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+           
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+            >
+         
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <a
+                    href="/"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >Home</a
+                  >
+                  <a
+                    href="/course/allMyCourses"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >Courses</a
+                  >
+                  <a
+                    href="/course/createCourse"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >Create Course</a
+                  >
+                  <% if (user) { %>
+                    <a
+                    href="/logout"
+                    type="button"
+                    class="inline-block rounded visible bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Logout
+                  </a>
+                  <% } %>
+    
+                </div>
+              </div>
+            </div>
+          
+            </div>
+          </div>
+        </div>
+
+ 
+      </nav>
+    </header>
+    <main>
+      <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+        <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+          <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+          <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:mx-0">
+            <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">What we do</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Learning Mangment System</p>
+          </div>
+          <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+         
+            <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+              <div class="flex flex-col-reverse justify-center items-center">
+                <dt class="text-base leading-7 text-gray-300">Create and deliver content</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white"> <i class="fa-solid fa-video fa-xl"></i></dd>
+              </div>
+              <div class="flex flex-col-reverse justify-center items-center">
+                <dt class="text-base leading-7 text-gray-300">Track progress</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white">                <i class="fa-solid fa-sliders fa-xl"></i>
+                </dd>
+              </div>
+              <div class="flex flex-col-reverse justify-center items-center">
+                <dt class="text-base leading-7 text-gray-300">Manage users</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white"><i class="fa-solid fa-users fa-xl"></i>
+                </dd>
+              </div>
+              <% if (user) { %>
+                <a
+                type="button"
+                href="/instructor/login"
+                class="inline-block invisible rounded bg-primary px-6 pb-2 pt-2.5 text-sm text-center font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                Get Started
+              </a>
+              <% } else{%>
+                
+              <a
+              type="button"
+              href="/instructor/login"
+              class="inline-block rounded bg-primary  pt-5 text-sm text-center font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+              Get Started
+            </a>
+            <%}%>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+    </main>
+    
+      <div class="bg-slate-100 py-24 sm:py-32">
+        <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+          <div class="max-w-2xl">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our Team</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+          </div>
+          <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+            <% for( let x of allUser) { %>
+              <li>
+                <div class="flex items-center gap-x-6">
+                  <i class="fa-solid fa-user fa-xl"></i>                
+                  <div>
+                    <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900"><%= x.username %></h3>
+                    <p class="text-sm font-semibold leading-6 text-indigo-600"><%= x.job.toUpperCase() %></p>
+                  </div>
+                </div>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  </body>
+</html>
