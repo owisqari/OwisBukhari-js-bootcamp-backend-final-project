@@ -1,6 +1,7 @@
 # OwisBukhari-js-bootcamp-backend-final-project
 
 Project Overview
+![alt image](./images/Screenshot%201444-11-04%20at%2010.52.11%20AM.png)
 
 This project is a learning management system (LMS) that allows instructors to create and deliver courses, students to register for and take courses, and principals to manage the courses.
 

@@ -1,6 +1,5 @@
 const instructorDB = require("../models/instructorModel");
 const courseDB = require("../models/CourseModel");
-var moment = require("moment");
 
 exports.allMyCourses = async (req, res) => {
   try {
@@ -10,7 +9,6 @@ exports.allMyCourses = async (req, res) => {
       .where("instructorId")
       .equals(id)
       .populate("instructorId");
-    moment(courses.createdAt).format("YYYY-MM-DD");
     res.render("courses.ejs", { courses: courses });
   } catch (err) {
     console.log(err);

@@ -7,6 +7,7 @@ require("dotenv").config();
 const instructorapiRouter = require("./routers/instructorRouter");
 const courseapiRouter = require("./routers/courseRouter");
 const homeRouter = require("./routers/indexRoute");
+const studentRouter = require("./routers/studentRouter");
 
 url
   .connect(process.env.DB_URL)
@@ -49,7 +50,7 @@ app.set("views", "./views");
 app.use("/", homeRouter);
 app.use("/instructor", instructorapiRouter);
 app.use("/course", courseapiRouter);
-
+app.use("/student", studentRouter);
 app.listen(process.env.PORT, () => {
   console.log("Server running on port 8080");
 });

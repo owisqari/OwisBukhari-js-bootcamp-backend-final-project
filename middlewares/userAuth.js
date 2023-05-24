@@ -19,3 +19,24 @@ exports.verifyUser = (req, res, next) => {
     }
   });
 };
+
+exports.verifyStudent = (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  const token = req.headers.authorization.split(" ")[1];
+  if (!token) {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
+    if (err) {
+      res.status(401).json({ message: "Unauthorized" });
+    } else {
+      res.locals.currentUser = data;
+      res.locals.userId = data._id;
+      res.locals.token = token;
+      next();
+    }
+  });
+};
