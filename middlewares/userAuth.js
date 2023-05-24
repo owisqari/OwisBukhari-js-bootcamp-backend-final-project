@@ -5,10 +5,12 @@ require("dotenv").config();
 exports.verifyUser = (req, res, next) => {
   if (!req.cookies.access_token) {
     res.redirect("/instructor/login");
+    return;
   }
   const token = req.cookies.access_token;
   if (!token) {
     res.redirect("/instructor/login");
+    return;
   }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {

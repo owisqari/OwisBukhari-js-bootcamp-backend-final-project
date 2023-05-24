@@ -101,8 +101,7 @@ exports.login = async (req, res) => {
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
-      res.cookie("access_token", token);
-      res.redirect("/");
+      res.cookie("access_token", token).redirect("/");
     } else {
       res.redirect("/instructor/login");
     }
