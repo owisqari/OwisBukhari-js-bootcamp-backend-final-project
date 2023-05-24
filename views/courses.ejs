@@ -34,7 +34,6 @@
       src="https://kit.fontawesome.com/1bacf2776e.js"
       crossorigin="anonymous"
     ></script>
-  
   </head>
 
   <body>
@@ -42,11 +41,9 @@
       <nav class="bg-gray-800">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
-           
             <div
               class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
             >
-         
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                   <a
@@ -67,60 +64,81 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
         </div>
       </nav>
     </header>
-      <div class="bg-slate-100 py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Courses</h2>
-            <p class="mt-2 text-lg leading-8 text-gray-600">All courses that you have created.</p>
-          </div>
-          
-          <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <% for( let x of courses) { %>
-            <article class="flex max-w-xl flex-col items-start justify-between">
-              <div class="flex items-center gap-x-4 text-xs">
-                <time datetime="2020-03-16" class="text-gray-500"><%= x.createdAt %></time>
-                <a href="/course/editCourse/<%= x._id %>" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Edit</a>
-              </div>
-              <div class="group relative">
-                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a href="#">
-                    <span class="absolute inset-0"></span>
-                    <%= x.courseName %>
-                  </a>
-                </h3>
-                <p class="mt-5 mb-5 line-clamp-3 text-sm leading-6 text-gray-600"><%= x.courseDescription %></p>
+    <div class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <h2
+            class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
+            Courses
+          </h2>
+          <p class="mt-2 text-lg leading-8 text-gray-600">
+            All courses that you have created.
+          </p>
+        </div>
+
+        <div
+          class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+          <% for( let x of courses) { %>
+          <article
+            class="flex max-w-xl flex-col items-start justify-between bg-slate-50 shadow-2xl rounded-lg p-10"
+          >
+            <div class="flex items-center gap-x-4 text-xs">
+              <time datetime="2020-03-16" class="text-gray-500"
+                ><%= x.createdAt %></time
+              >
+              <a
+                href="/course/editCourse/<%= x._id %>"
+                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                >Edit</a
+              >
+            </div>
+            <div class="group relative">
+              <h3
+                class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+              >
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Course Requirements
+                  <%= x.courseName %>
                 </a>
-                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"><%= x.courseRequirement %></p>
+              </h3>
+              <p class="mt-5 mb-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                <%= x.courseDescription %>
+              </p>
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                Course Requirements
+              </a>
+              <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                <%= x.courseRequirement %>
+              </p>
+            </div>
+            <div class="mt-8 flex justify-between items-center gap-x-5">
+              <i class="fa-solid fa-user fa-xl"></i>
+              <div class="text-sm leading-6">
+                <p class="font-semibold text-gray-900">
+                  <a href="#"> <%= x.instructorId.username %> </a>
+                </p>
+                <p class="text-gray-600">Instructor</p>
               </div>
-              <div class="relative mt-8 flex items-center gap-x-4">
-                <i class="fa-solid fa-user fa-xl"></i>                
-                <div class="text-sm leading-6">
-    
-                  <p class="font-semibold text-gray-900">
-                    <a href="#">
-                      <span class="absolute inset-0"></span>
-                      <%= x.instructorId.username %>
-                    </a>
-                  </p>
-                  <p class="text-gray-600">Instructor</p>
-                </div>
-                <a href="/course/deleteCourse/<%= x._id %>" class="relative z-10 rounded-full bg-red-300 px-3 py-1.5 font-medium text-black hover:bg-red-700">Delete</a>
+              <div class="ml-32">
+                <a
+                  href="/course/deleteCourse/<%= x._id %>"
+                  class="relative z-10 rounded-full bg-red-300 px-3 py-1.5 font-medium text-black hover:bg-red-700"
+                  >Delete</a
+                >
               </div>
-            </article>
-            <% } %>
-          </div>
+            </div>
+          </article>
+          <% } %>
         </div>
       </div>
-      
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
   </body>
 </html>

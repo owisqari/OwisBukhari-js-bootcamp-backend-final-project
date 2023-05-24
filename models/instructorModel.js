@@ -20,6 +20,9 @@ const instructorSchema = new Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+    },
     courseId: [
       {
         type: Schema.Types.ObjectId,

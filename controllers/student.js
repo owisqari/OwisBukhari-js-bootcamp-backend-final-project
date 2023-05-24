@@ -74,7 +74,7 @@ exports.registerCourse = async (req, res) => {
   const courseId = req.params.id;
   const studentId = res.locals.currentUser.userId;
 
-  if (courseId && studentId) {
+  if (!courseId && !studentId) {
     res.status(400).json({ message: "Please enter all required fields" });
     return;
   }

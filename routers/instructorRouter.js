@@ -5,7 +5,10 @@ const {
   getRegister,
   login,
   getLogin,
+  initPrincipal,
 } = require("../controllers/instructor");
+
+router.post("/initPrincipal", initPrincipal);
 
 router.get("/register", getRegister);
 // register route

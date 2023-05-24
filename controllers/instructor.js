@@ -7,6 +7,41 @@ exports.getRegister = (req, res) => {
   res.render("Signup.ejs");
 };
 
+exports.initPrincipal = async (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.email;
+  const job = req.body.job;
+  const role = "admin";
+
+  // Validate the input
+  if (!username || !password || !email || !job) {
+    res.redirect("/instructor/register");
+    return;
+  }
+  try {
+    // Hash the password
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+      if (err) {
+        console.log(err);
+      }
+      // Create the user
+      const savedUser = new instructorDB({
+        username: username,
+        password: hash,
+        email: email,
+        job: job,
+        role: role,
+      });
+      savedUser.save();
+      // Return the token
+      res.redirect("/instructor/login");
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.register = async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -22,7 +57,7 @@ exports.register = async (req, res) => {
     // Check if the username already exists
     const user = await instructorDB.findOne({ username });
     if (user) {
-      res.redirect("/instructor/login");
+      res.redirect("/instructor/register");
       return;
     }
 
@@ -42,8 +77,8 @@ exports.register = async (req, res) => {
       expiresIn: "1h",
     });
 
+    savedUser.save();
     // Return the token
-    res.cookie("token", token);
     res.redirect("/instructor/login");
   } catch (err) {
     console.log(err);
