@@ -16,7 +16,7 @@ exports.allMyCourses = async (req, res) => {
       return;
     } else {
       const allCourses = await courseDB.find().populate("instructorId");
-      res.render("Courses.ejs", { courses: allCourses });
+      res.render("courses.ejs", { courses: allCourses });
     }
   } catch (err) {
     console.log(err);
