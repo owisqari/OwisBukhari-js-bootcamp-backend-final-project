@@ -3,6 +3,9 @@ require("dotenv").config();
 
 // verify token middleware
 exports.verifyUser = (req, res, next) => {
+  if (!req.cookies.access_token) {
+    res.redirect("/instructor/login");
+  }
   const token = req.cookies.access_token;
   if (!token) {
     res.redirect("/instructor/login");
@@ -14,7 +17,6 @@ exports.verifyUser = (req, res, next) => {
     } else {
       res.locals.currentUser = data;
       res.locals.userId = data.userId;
-      res.locals.token = token;
       next();
     }
   });
