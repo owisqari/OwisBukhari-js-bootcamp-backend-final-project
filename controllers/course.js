@@ -13,6 +13,7 @@ exports.allMyCourses = async (req, res) => {
         .equals(id)
         .populate("instructorId");
       res.render("courses.ejs", { courses: courses });
+      return;
     } else {
       const allCourses = await courseDB.find().populate("instructorId");
       res.render("Courses.ejs", { courses: allCourses });
@@ -56,8 +57,10 @@ exports.getEditCoursePage = async (req, res) => {
       const course = await courseDB.findById(req.params.id);
       if (course.instructorId == res.locals.userId) {
         res.render("editCourse.ejs", { course: course });
+        return;
       } else {
         res.redirect("/");
+        return;
       }
     } else {
       const course = await courseDB.findById(req.params.id);
@@ -79,8 +82,10 @@ exports.editCourse = async (req, res) => {
         course.courseDescription = req.body.courseDescription;
         const updatedCourse = await course.save();
         res.redirect("/course/allMyCourses");
+        return;
       } else {
         res.redirect("/");
+        return;
       }
     } else {
       const course = await courseDB.findById(req.params.id);
@@ -89,6 +94,7 @@ exports.editCourse = async (req, res) => {
       course.courseDescription = req.body.courseDescription;
       const updatedCourse = await course.save();
       res.redirect("/course/allMyCourses");
+      return;
     }
   } catch (err) {
     console.log(err);
@@ -109,8 +115,10 @@ exports.deleteCourse = async (req, res) => {
 
         const deletedCourse = await courseDB.findByIdAndDelete(req.params.id);
         res.redirect("/course/allMyCourses");
+        return;
       } else {
         res.redirect("/");
+        return;
       }
     } else {
       const instructorUser = await instructorDB.updateMany(
