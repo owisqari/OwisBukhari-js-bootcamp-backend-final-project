@@ -86,7 +86,7 @@ exports.register = async (req, res) => {
 };
 
 exports.getLogin = (req, res) => {
-  res.render("login.ejs");
+  res.render("Login.ejs");
 };
 
 exports.login = async (req, res) => {
