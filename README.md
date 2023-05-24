@@ -37,34 +37,21 @@ Principals can:
 Requirements
 
     NodeJs
-    NPM
+    Npm
     Mongodb
 
 Setup
 
     Clone the repository.
-    Create a virtual environment and activate it.
-    Install the requirements.
-    Create a database and migrate the models.
-    Run the server.
+    Run npm install.
+    Run npm run dev.
+    The server is running on port 8080.
 
 Usage
 
     Instructors can login to the dashboard and add new courses.
     Students can register for courses and view their course content.
     Principals can manage the courses in the system.
-
-Contributing
-
-If you would like to contribute to this project, please fork the repository and submit a pull request.
-License
-
-This project is licensed under the MIT License.
-Contact
-
-If you have any questions or feedback, please feel free to contact me.
-
-Thank you for your interest in this project!
 
 Additional notes
 
