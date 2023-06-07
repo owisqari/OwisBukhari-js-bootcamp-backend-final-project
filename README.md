@@ -1,4 +1,4 @@
-# OwisBukhari-js-bootcamp-backend-final-project
+# Learning Management System
 
 Project Overview
 ![alt image](./images/Screenshot%201444-11-04%20at%2010.52.11%20AM.png)
