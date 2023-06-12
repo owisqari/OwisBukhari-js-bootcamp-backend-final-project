@@ -3,6 +3,7 @@ const app = express();
 const url = require("mongoose");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config();
 const instructorapiRouter = require("./routers/instructorRouter");
 const courseapiRouter = require("./routers/courseRouter");
@@ -35,6 +36,7 @@ module.exports = {
   // ...
 };
 
+app.use(cors());
 //config cookie-parser
 app.use(cookieParser());
 //config body-parser
