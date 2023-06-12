@@ -14,8 +14,8 @@ const {
 // routes
 router.post("/Register", register);
 router.post("/Login", login);
-router.get("/Courses", verifyStudent, getAllCourses);
-router.post("/RegisterCourse/:id", verifyStudent, registerCourse);
-router.delete("/CancelCourse/:id", verifyStudent, cancelCourse);
+router.get("/Courses", getAllCourses);
+router.post("/RegisterCourse/:id", registerCourse);
+router.delete("/CancelCourse/:id", cancelCourse);
 
 module.exports = router;
